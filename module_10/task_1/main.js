@@ -6,6 +6,7 @@ function addEditingButton() {
     document.body.append(editButton)
 
     editButton.addEventListener("click", function () {
+        saveVersionListStatusInSessionStorage()
         deleteEditingButton(editButton);
         deleteVersionList()
         addSaveAndCancelButtons()
@@ -75,7 +76,7 @@ function addTextArea() {
 
 function cancelChanges() {
     let text = document.querySelector(".textarea")
-    text.innerHTML = localStorage.text
+    text.innerHTML = localStorage.getItem(sessionStorage.getItem("select"))
 }
 
 function addVersionList() {
@@ -87,6 +88,7 @@ function addVersionList() {
         let text = document.querySelector(".textarea")
         let select = document.querySelector("select")
 
+        addTextArea()
         text.innerHTML = localStorage.getItem(select.options[select.selectedIndex].text)
     })
 }
@@ -104,6 +106,15 @@ function deleteVersionList() {
     versionList.remove()
 }
 
+function saveVersionListStatusInSessionStorage() {
+    let select = document.querySelector(".select")
+    if (select.options[select.selectedIndex] !== undefined) {
+        sessionStorage.setItem("select", select.options[select.selectedIndex].text)
+    }
+
+
+}
+
 try {
     addEditingButton()
     addVersionList()
@@ -111,6 +122,4 @@ try {
 } catch (ex) {
     console.log(ex)
 }
-
-
 
