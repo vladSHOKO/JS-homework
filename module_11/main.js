@@ -24,7 +24,7 @@ async function swapiRequest() {
     let searchType = document.getElementById("select-list").value
     changePersonData()
 
-    let api = "https://swapi.dev/api/";
+    let api = "https://swapi.dev/api/1234";
     let url = api + searchType + "/?search=" + inputText;
 
     let response = await fetch(url)

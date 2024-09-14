@@ -2,7 +2,7 @@
 
 function addEditingButton() {
     let editButton = document.createElement("article")
-    editButton.innerHTML = '<button> Edit </button>'
+    editButton.innerHTML = '<button.css> Edit </button.css>'
     document.body.append(editButton)
 
     editButton.addEventListener("click", function () {
@@ -16,11 +16,11 @@ function addEditingButton() {
 
 function addSaveAndCancelButtons() {
     let saveButton = document.createElement("article")
-    saveButton.innerHTML = '<button> Save </button>'
+    saveButton.innerHTML = '<button.css> Save </button.css>'
     document.body.append(saveButton)
 
     let cancelButton = document.createElement("article")
-    cancelButton.innerHTML = '<button> Cancel changes </button>'
+    cancelButton.innerHTML = '<button.css> Cancel changes </button.css>'
     document.body.append(cancelButton)
 
     saveButton.addEventListener("click", function () {
